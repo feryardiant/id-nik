@@ -1,0 +1,34 @@
+{
+    "name": "projek-xyz/id-nik",
+    "description": "Indonesia NIK (Nomor Induk Kependudukan)",
+    "keywords": ["indonesia", "nik", "ktp", "http"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fery Wardiyanto",
+            "email": "hallo@feryardiant.me",
+            "homepage": "http://feryardiant.me"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/projek-xyz/id-nik/issues",
+        "source": "https://github.com/projek-xyz/id-nik"
+    },
+    "autoload": {
+        "psr-4": {
+            "Projek\\Id\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "~6.0",
+        "symfony/css-selector": "~3.0",
+        "symfony/dom-crawler": "~3.0"
+    },
+    "require-dev": {
+        "zendframework/zend-diactoros": "~1.3"
+    }
+}

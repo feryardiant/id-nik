@@ -1,0 +1,7 @@
+.idea/
+.directory
+composer.lock
+vendor
+clover.xml
+coveralls-upload.json
+*.sublime-*
