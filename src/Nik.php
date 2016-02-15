@@ -38,8 +38,7 @@ class Nik
         }
 
 		$this->client = $client;
-
-		$this->setResponseHanlder($handler);
+        $this->responseHandler = $handler;
 	}
 
 	/**
