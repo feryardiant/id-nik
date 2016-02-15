@@ -153,7 +153,7 @@ class Nik
      * @return array
      * @throws \InvalidArgumentException If invalid 'nik' lenght or format.
      */
-    public function assertValidateNik($nik)
+    protected function assertValidateNik($nik)
     {
         // Make sure NIK is 16 in lenght.
         if (strlen($nik) !== 16) {
@@ -177,7 +177,7 @@ class Nik
      * @return string
      * @throws \InvalidArgumentException If has no 'nik' defined in query params.
      */
-    private function assertQueryParams(Request $request)
+    protected function assertQueryParams(Request $request)
     {
         $params = $request->getQueryParams();
 
@@ -196,7 +196,7 @@ class Nik
      * @return \Psr\Http\Message\ServerRequestInterface
      * @throws \InvalidArgumentException If Request Accept header not application/json.
      */
-    private function assertRequestHeader(Request $request)
+    protected function assertRequestHeader(Request $request)
     {
         // If it's an AJAX request, return as is
         if ($request->getHeaderLine('X-Requested-With') == 'XMLHttpRequest') {
