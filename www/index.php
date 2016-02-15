@@ -7,17 +7,17 @@ use Zend\Diactoros\Response\JsonResponse;
 use Zend\Diactoros\ServerRequestFactory;
 
 /**
- * Setup handler instance
+ * Setup handler instance.
  *
  * @var \Projek\Id\Nik
  */
 $requestHandler = new Projek\Id\Nik;
 
 /**
- * Setup response handler,
+ * Setup response handler, (optional).
  */
 $requestHandler->setResponseHanlder(function ($data, $status) {
-	return new JsonResponse($data, $status);
+    return new JsonResponse($data, $status);
 });
 
 /**
@@ -26,8 +26,8 @@ $requestHandler->setResponseHanlder(function ($data, $status) {
  * @var Server
  */
 $server = Server::createServerfromRequest(
-	$requestHandler,
-	ServerRequestFactory::fromGlobals()
+    $requestHandler,
+    ServerRequestFactory::fromGlobals()
 );
 
 /**
