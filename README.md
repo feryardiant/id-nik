@@ -11,7 +11,7 @@ Via [Composer](https://getcomposer.org/)
 $ composer require projek-xyz/id-nik --prefer-dist
 ```
 
-## Usage
+## TO-DO
 
 * [ ] Make it configuratble,
 * [ ] write Documentation,
