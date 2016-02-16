@@ -57,13 +57,7 @@ class Nik
     public function __invoke(Request $request, Response $response)
     {
         if (is_null($this->responseHandler)) {
-            $this->setResponseHanlder(function (array $data, $code) use ($response) {
-                $body = $response->getBody();
-                $body->write(json_encode($data, true));
-
-                return $response->withBody($body)->withStatus($code)
-                    ->withHeader('Content-Type', 'application/json');
-            });
+            $this->setupDefualtHandler();
         }
 
         try {
@@ -71,10 +65,10 @@ class Nik
             $request = $this->assertRequestHeader($request);
 
             // Verify Query parameters
-            $params = $this->assertQueryParams($request);
+            $nik = $this->assertQueryParams($request);
 
             // Send a client request
-            $apiResponse = $this->sendRequest($params['nik']);
+            $apiResponse = $this->sendRequest($nik);
         } catch (InvalidArgumentException $e) {
             return $this->handleResponse([
                 'message' => $e->getMessage()
@@ -251,5 +245,21 @@ class Nik
         }
 
         return call_user_func($this->responseHandler, $data, $status);
+    }
+
+    /**
+     * Setup default handler only of no handler found
+     *
+     * @return void
+     */
+    private function setupDefualtHandler()
+    {
+        $this->setResponseHanlder(function (array $data, $code) use ($response) {
+            $body = $response->getBody();
+            $body->write(json_encode($data));
+
+            return $response->withBody($body)->withStatus($code)
+                ->withHeader('Content-Type', 'application/json');
+        });
     }
 }
