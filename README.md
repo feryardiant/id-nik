@@ -16,7 +16,7 @@ $ composer require projek-xyz/id-nik --prefer-dist
 * [ ] Make it configuratble,
 * [ ] write Documentation,
 * [ ] Write Unit test,
-* [ ] __Any idea? PR are very welcome__ :wink:
+* [ ] _Any idea? PR are very welcome_ :wink:
 
 ## Demo
 
